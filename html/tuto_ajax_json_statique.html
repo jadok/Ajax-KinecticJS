@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="headerFontColor" content="#FFFFFF" />
+<meta name="headerBackColor" content="#89205b" />
+<meta name="googleSearch"    content="false" />
+<title>Techniques AJAX - Dynamic Script Loading - JSON Statique</title>
+<script type="text/javascript" src="../mep/skin.js"></script>
+<script type="text/javascript">
+<!--
+function send(sUrl) {
+	var oScript = document.createElement("script");
+	oScript.src = "./../js/DynamicScriptLoading_JSON_1.js";
+	oScript.type = "text/javascript";
+	document.body.appendChild(oScript);
+}
+
+function callback(oJson) {
+	var tree = "", nbItems;
+	
+	for (sItem in oJson) { 
+		tree   += sItem + "\n";
+		nbItems = oJson[sItem].length;
+		
+		for (var i=0; i<nbItems; i++) {
+			tree += "\t" + oSoftwares[sItem][i] + "\n";
+		}
+	}
+	
+	alert(tree);
+}
+
+function getInfo() {
+	send("./../js/DynamicScriptLoading_JSON_1.js");
+}
+//-->
+</script>
+</head>
+<body>
+<p id="main">
+	<input type="button" value="Récupérer les données" onclick="getInfo();" />
+</p>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<html>
+	<head>
+		<title>Test</title>
+		<style type="text/css">
+			label#dispTime {
+				padding-right: 5px;
+			}
+			span.value {
+				min-width: 50px;
+				margin-left: 5px;
+				margin-right: 5px;
+				padding-right: 5px;		
+			}
+			
+			div {
+				position: relative;		
+			}
+		</style>
+	</head>
+	<body>
+	
+		<div  id="myImage1" style="left:100px;top:100px;">
+			<img src="image.gif" height="30px"/>
+		</div>
+		
+		<div id="monitoring" style="left:50px;top:400px;boder-width:1px;border-color:lightblue;border-style:solid;width:250px;background-color:#eeeeee;" />
+		
+		<script type="text/javascript" src="../js/rotation.js"></script>
+		<script>
+		
+			function changePosition()
+			{
+			 angle=time*0.001; // Angular speed of 0.001
+			 position('myImage1',400,200,100,angle);
+			 myDiv=document.getElementById('monitoring');
+			 myDiv.innerHTML='<label id="dispTime" for="time">Time (sec) </label><span class="value">'+(time/1000)+'</span>\n';// Convert time in ms to s to print
+			 time+=intervalDetime;
+			}
+			
+			var intervalDetime=50;
+			var time=0;
+			position('myImage1', 400, 200, 100,0 )
+			changePosition();
+			timing=setInterval("changePosition()",intervalDetime);
+			
+		</script>
+	
+	</body>
+</html>
